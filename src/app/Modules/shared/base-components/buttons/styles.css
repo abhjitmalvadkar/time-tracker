@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+}
+
+:host .button {
+  position: relative;
+  height: 3.6rem;
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 0 2rem;
+  border-radius: 0.5rem;
+}
+
+:host .button .overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+:host .button.disabled {
+  cursor: auto;
+}
+
+:host .button {
+  overflow: hidden;
+}

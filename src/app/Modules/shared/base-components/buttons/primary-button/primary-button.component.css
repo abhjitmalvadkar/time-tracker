@@ -1,0 +1,15 @@
+.button {
+  background: #96CF52;
+  color: #FFFFFF;
+  height: 5rem !important;
+}
+
+.button.disabled {
+  background: #D6ECBB;
+  color: #FFFFFF;
+}
+
+.button-content {
+  font-size: 2rem;
+  font-weight: 700;
+}

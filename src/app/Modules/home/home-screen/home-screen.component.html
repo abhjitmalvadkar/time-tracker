@@ -1,0 +1,69 @@
+<div class="component-container flex flex-col justify-center items-center gap-[4rem]">
+  <div class="heading flex flex-row justify-center items-center">
+    Time and Activity Tracker
+  </div>
+  <div class="timer flex flex-row justify-center items-center">
+    <p>{{ time }}</p>
+  </div>
+  <div class="action-section flex flex-row justify-center items-center gap-[2rem] w-1/4">
+    <app-primary-button
+      class="start-btn w-1/2"
+      [class.disabled-btn]="disableButton"
+      [isDisabled]="disableButton"
+      (handleClick)="start()"
+    >
+      Start
+    </app-primary-button>
+    <app-primary-button
+      class="stop-btn w-1/2"
+      [isDisabled]="!disableButton"
+      [class.disabled-btn]="!disableButton"
+      (handleClick)="stop()"
+    >
+      Stop
+    </app-primary-button>
+  </div>
+  <div
+    class="report-section flex flex-col justify-center w-full"
+    *ngIf="displayReport"
+  >
+    <div class="heading flex flex-row justify-center">
+      Activity Report
+    </div>
+
+    <div class="row flex flex-row justify-center items-center">
+      <div class="label flex flex-row justify-end w-1/2">
+        Time Tracked :
+      </div>
+
+      <div class="value ml-[0.5rem] flex flex-row justify-start w-1/2">
+        {{ trackedTime }}
+      </div>
+    </div>
+    <div class="row flex flex-row justify-center items-center">
+      <div class="label flex flex-row justify-end w-1/2">
+        Active Time :
+      </div>
+      <div class="value ml-[0.5rem] flex flex-row justify-start w-1/2">
+        {{ formatedActiveTime }}
+      </div>
+    </div>
+    <div class="row flex flex-row justify-center items-center">
+      <div class="label flex flex-row justify-end w-1/2">
+        Inactive Time :
+      </div>
+      <div class="value ml-[0.5rem] flex flex-row justify-start w-1/2">
+        {{ formatedInactivityTime }}
+      </div>
+    </div>
+    <div class="row flex flex-row justify-center items-center">
+      <div class="label flex flex-row justify-end w-1/2">
+        Activity Percentage :
+      </div>
+      <div class="value ml-[0.5rem] flex flex-row justify-start w-1/2">
+        {{ activityPercentage }} %
+      </div>
+    </div>
+  </div>
+</div>
+

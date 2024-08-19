@@ -1,0 +1,27 @@
+<button
+  (mousedown)="$event.preventDefault()"
+  (throttledClick)="!isDisabled && !isLoading && handleClick.emit()"
+  [ngClass]="{disabled: isDisabled, loading: isLoading}"
+  [throttleTime]="throttleTime"
+  class="button primary-button w-full flex flex-row items-center justify-center"
+  [class.disabled]="isDisabled"
+  preventMultipleClick
+>
+  <div
+    *ngIf="!isLoading; else loader"
+    class="button-content w-full text-ellipsis truncate"
+  >
+    <ng-content></ng-content>
+  </div>
+  <ng-template #loader>
+    <mat-spinner
+      class="button-loader"
+      mode="indeterminate"
+      [diameter]="20"
+    >
+    </mat-spinner>
+  </ng-template>
+  <div
+    [id]="buttonId"
+    class="overlay"></div>
+</button>
